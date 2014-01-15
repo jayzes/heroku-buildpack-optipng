@@ -1,0 +1,23 @@
+#!/bin/sh
+
+indent() {
+  sed -u 's/^/       /'
+}
+
+echo "-----> Installing optipng"
+BUILD_DIR=$1
+VENDOR_DIR="vendor"
+OPTIPNG_DOWNLOAD_URL="https://github.com/jayzes/heroku-buildpack-optipng/releases/download/v0.7.4/optipng"
+
+echo "OPTIPNG_DOWNLOAD_URL = " $PNGQUANT_DOWNLOAD_URL | indent
+
+cd $BUILD_DIR
+mkdir -p $VENDOR_DIR/optipng/bin
+cd $VENDOR_DIR
+curl -L --silent -o optipng/bin/optipng $OPTIPNG_DOWNLOAD_URL
+chmod +x optipng/bin/optipng
+
+echo "exporting PATH" | indent
+PROFILE_PATH="$BUILD_DIR/.profile.d/optipng"
+mkdir -p $(dirname $PROFILE_PATH)
+echo 'export PATH="$PATH:vendor/optipng/bin"' >> $PROFILE_PATH
