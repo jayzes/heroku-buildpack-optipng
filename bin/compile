@@ -9,7 +9,7 @@ BUILD_DIR=$1
 VENDOR_DIR="vendor"
 OPTIPNG_DOWNLOAD_URL="https://github.com/jayzes/heroku-buildpack-optipng/releases/download/v0.7.4/optipng"
 
-echo "OPTIPNG_DOWNLOAD_URL = " $PNGQUANT_DOWNLOAD_URL | indent
+echo "OPTIPNG_DOWNLOAD_URL = " $OPTIPNG_DOWNLOAD_URL | indent
 
 cd $BUILD_DIR
 mkdir -p $VENDOR_DIR/optipng/bin
