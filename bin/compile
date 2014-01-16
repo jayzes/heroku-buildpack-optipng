@@ -18,6 +18,6 @@ curl -L --silent -o optipng/bin/optipng $OPTIPNG_DOWNLOAD_URL
 chmod +x optipng/bin/optipng
 
 echo "exporting PATH" | indent
-PROFILE_PATH="$BUILD_DIR/.profile.d/optipng"
+PROFILE_PATH="$BUILD_DIR/.profile.d/optipng.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:vendor/optipng/bin"' >> $PROFILE_PATH
