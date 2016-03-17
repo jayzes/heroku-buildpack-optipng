@@ -9,20 +9,12 @@ This is based on http://github.com/jayzes/heroku-buildpack-ffmpeg, which was in 
 
 Usage
 -----
-Add a `.buildpacks` file to the root of your repo that contains this buildpack URL and your real buildpack URL:
+Add this buildpack to you existing app buildpacks:
 
-    https://github.com/jayzes/heroku-buildpack-optipng
-    https://github.com/heroku/heroku-buildpack-ruby
+    $ heroku buildpacks:add --index 1 https://github.com/jayzes/heroku-buildpack-optipng
 
-Then create an application using the multi buildpack:
-
-    $ heroku create --buildpack https://github.com/ddollar/heroku-buildpack-multi
-
-or configure an existing application:
-
-    $ heroku config BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi
+Create a new release with a Git push. `heroku buildpacks:add` gives you the exact command line to do this, check its output.
 
 You can verify that everything is properly installed by running the following command:
 
     $ heroku run "optipng -v"
-
